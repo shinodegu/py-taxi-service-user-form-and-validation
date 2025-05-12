@@ -1,5 +1,6 @@
 from django.urls import path
 
+from .forms import DriverLicenseUpdateForm
 from .views import (
     index,
     CarListView,
@@ -13,6 +14,9 @@ from .views import (
     ManufacturerCreateView,
     ManufacturerUpdateView,
     ManufacturerDeleteView,
+    DriverCreateView,
+    DriverDeleteView,
+    DriverUpdateView, AssignDriverView, RemoveDriverView,
 )
 
 urlpatterns = [
@@ -46,6 +50,11 @@ urlpatterns = [
     path(
         "drivers/<int:pk>/", DriverDetailView.as_view(), name="driver-detail"
     ),
+    path("drivers/create/", DriverCreateView.as_view(), name="driver-create"),
+    path("drivers/<int:pk>/delete/", DriverDeleteView.as_view(), name="driver-delete"),
+    path("drivers/<int:pk>/update/", DriverUpdateView.as_view(), name="driver-update"),
+    path("cars/<int:pk>/assign/", AssignDriverView.as_view(), name="assign-driver"),
+    path("cars/<int:pk>/remove/", RemoveDriverView.as_view(), name="remove-driver"),
 ]
 
 app_name = "taxi"
