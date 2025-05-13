@@ -1,6 +1,4 @@
 from django.urls import path
-
-from .forms import DriverLicenseUpdateForm
 from .views import (
     index,
     CarListView,
@@ -16,8 +14,11 @@ from .views import (
     ManufacturerDeleteView,
     DriverCreateView,
     DriverDeleteView,
-    DriverUpdateView, AssignDriverView, RemoveDriverView,
+    DriverUpdateView,
+    AssignDriverView,
+    RemoveDriverView,
 )
+
 
 urlpatterns = [
     path("", index, name="index"),
